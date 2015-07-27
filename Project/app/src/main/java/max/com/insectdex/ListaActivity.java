@@ -6,7 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by Max on 19/07/2015.
@@ -44,6 +50,12 @@ public class ListaActivity extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_lista, container, false);
+
+        ListView listView = (ListView)rootView.findViewById(R.id.listView_lista);
+
+        List<String> listaEspecies = MainActivity.especies.getEspecies();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplication().getApplicationContext(), android.R.layout.simple_list_item_checked, listaEspecies);
+        listView.setAdapter(adapter);
 
         return rootView;
     }
