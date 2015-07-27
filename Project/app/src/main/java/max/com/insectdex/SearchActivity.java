@@ -91,7 +91,12 @@ public class SearchActivity extends Fragment implements View.OnClickListener {
                     m_listView.getCheckedItemPosition()).toString();
             MainActivity.especies.setResposta(item);
 
-            update();
+            if (MainActivity.especies.temResultado()) {
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, ListaActivity.getInstance(2))
+                        .commit();
+            }else
+                update();
         }
         if (m_buttonCancel == v)
         {
@@ -105,7 +110,9 @@ public class SearchActivity extends Fragment implements View.OnClickListener {
         Set<String> respostas;
         do {
             respostas = MainActivity.especies.getRespostas();
-        }while (respostas.size() == 0);
+            if (respostas.size() < 1)
+                MainActivity.especies.incrementaPergunta();
+        }while (respostas.size() < 1);
 
         String strPergunta = MainActivity.especies.getPergunta();
         m_textViewPergunta.setText(strPergunta);
