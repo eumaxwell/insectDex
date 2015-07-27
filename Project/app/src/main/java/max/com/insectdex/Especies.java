@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
@@ -21,12 +22,13 @@ public final class Especies {
     private Map<String,Vector<String>> mapEspecieAtributos;
     private Vector<String> listaPerguntas;
     private int idPergunta;
+    private boolean repetindoPergunta;
 
     public Especies(InputStream file) {
         setMapEspecieAtributos(new HashMap<String, Vector<String>>());
         setListaPerguntas(new Vector<String>());
         carregaArquivo(file);
-
+        repetindoPergunta = false;
     }
 
     private void carregaArquivo(InputStream file) {
@@ -66,7 +68,7 @@ public final class Especies {
 
     public void setResposta(String strResposta)
     {
-        ArrayList<String> listaApagar = new ArrayList<>();
+        ArrayList<String> listaApagar = new ArrayList<String>();
         for (Map.Entry<String, Vector<String>> entry : mapEspecieAtributos.entrySet())
         {
             if (!entry.getValue().elementAt(idPergunta).equals(strResposta))
@@ -79,14 +81,13 @@ public final class Especies {
         {
             mapEspecieAtributos.remove(s);
         }
-
         incrementaPergunta();
-
     }
     public void incrementaPergunta() {
         idPergunta++;
         if (idPergunta == listaPerguntas.size()){
             idPergunta=0;
+            repetindoPergunta = true;
         }
     }
 
@@ -103,13 +104,13 @@ public final class Especies {
         }
         return setRespostas;
     }
-    public Vector<String> getEspecies()
+    public List<String> getEspecies()
     {
-        Vector<String> vecEspecies = new Vector<String>();
+        List<String> listEspecies = new ArrayList<>();
         for (Map.Entry<String, Vector<String>> entry : mapEspecieAtributos.entrySet()){
-            vecEspecies.add(entry.getKey());
+            listEspecies.add(entry.getKey());
         }
-        return vecEspecies;
+        return listEspecies;
     }
 
     public Map<String, Vector<String>> getMapEspecieAtributos() {
@@ -133,4 +134,15 @@ public final class Especies {
     }
 
 
+    public boolean temResultado() {
+        if (mapEspecieAtributos.size() == 1){
+            return true;
+        }
+        else{
+            if (repetindoPergunta) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
