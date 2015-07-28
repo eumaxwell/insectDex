@@ -10,40 +10,40 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView_search"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.30"
+        android:gravity="center_vertical|center_horizontal"
+        />
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="267dp"
+        android:layout_height="260dp"
         android:id="@+id/listView"
-        android:background="#ffdbdbdb"
-        android:layout_weight="0.60"
-        android:fastScrollEnabled="true"
-        android:fastScrollAlwaysVisible="true" />
+        android:background="@color/button_material_light"
+        android:layout_weight="0.50"
+        android:fastScrollEnabled="true">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    </ListView>
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView_search"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.05"
+        android:gravity="center_horizontal">
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responder"
+            android:id="@+id/buttonOK_search" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Responder"
-        android:id="@+id/buttonOK_search"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pular pergunta"
-        android:id="@+id/buttonCancel_search"
-        android:layout_gravity="center_horizontal" />
-
-
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pular pergunta"
+            android:id="@+id/buttonCancel_search" />
+    </TableRow>
 
 </LinearLayout>
