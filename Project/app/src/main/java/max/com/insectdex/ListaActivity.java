@@ -1,6 +1,7 @@
 package max.com.insectdex;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,14 @@ public class ListaActivity extends Fragment implements View.OnClickListener {
         ListView listView = (ListView)rootView.findViewById(R.id.listView_lista);
 
         List<String> listaEspecies = MainActivity.especies.getEspecies();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplication().getApplicationContext(), android.R.layout.simple_list_item_checked, listaEspecies);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplication().getApplicationContext(), android.R.layout.simple_list_item_1, listaEspecies){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                textView.setTextColor(Color.BLACK);
+                return textView;
+            }
+        };
         listView.setAdapter(adapter);
 
         return rootView;
