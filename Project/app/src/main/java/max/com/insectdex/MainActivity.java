@@ -55,10 +55,16 @@ public class MainActivity extends ActionBarActivity
                     .replace(R.id.container, SearchActivity.getInstance(position + 1))
                     .commit();
         }
-        else
+        else if (position == 1)
         {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, ListaActivity.getInstance(position + 1))
+                    .commit();
+        }
+        else
+        {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, AboutActivity.getInstance(position + 1))
                     .commit();
         }
     }
@@ -107,7 +113,12 @@ public class MainActivity extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            InputStream file = this.getResources().openRawResource(R.raw.especies);
+            especies = new Especies(file);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, SearchActivity.getInstance(1))
+                    .commit();
         }
 
         return super.onOptionsItemSelected(item);

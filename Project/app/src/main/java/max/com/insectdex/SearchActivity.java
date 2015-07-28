@@ -59,14 +59,11 @@ public class SearchActivity extends Fragment implements View.OnClickListener {
 
         m_textViewPergunta = (TextView) rootView.findViewById(R.id.textView_search);
 
-        if (m_buttonOK == null){
-            m_buttonOK = (Button) rootView.findViewById(R.id.buttonOK_search);
-            m_buttonOK.setOnClickListener(this);
-        }
-        if (m_buttonCancel == null) {
-            m_buttonCancel = (Button) rootView.findViewById(R.id.buttonCancel_search);
-            m_buttonCancel.setOnClickListener(this);
-        }
+        m_buttonOK = (Button) rootView.findViewById(R.id.buttonOK_search);
+        m_buttonOK.setOnClickListener(this);
+
+        m_buttonCancel = (Button) rootView.findViewById(R.id.buttonCancel_search);
+        m_buttonCancel.setOnClickListener(this);
 
         m_listView = (ListView) rootView.findViewById(R.id.listView);
         m_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);

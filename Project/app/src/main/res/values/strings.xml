@@ -2,13 +2,27 @@
     <string name="app_name">InsectDex</string>
 
     <string name="title_section1">Pesquisar</string>
-    <string name="title_section2">Sobre</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section2">Possíveis Espécies</string>
+    <string name="title_section3">Sobre o App</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Reiniciar Busca</string>
+
+    <string name="about">
+        \n\n\n
+        Este aplicativou foi desenvolvido por\n
+        Maxwell Almeida - eumaxwell@gmail.com\n
+        juntamente com o biólogo\n
+        Douglas Rocha - gay@gmail.com\n
+        \n\n\n\n
+        Para dar sujestões entre em contato\n
+        \n
+        Para doações, conta 3456789-1
+    </string>
+
+
 </resources>

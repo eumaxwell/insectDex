@@ -7,6 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView_lista"
-        android:background="@color/material_blue_grey_800" />
+        android:background="@color/material_blue_grey_800"
+        android:fastScrollAlwaysVisible="true"
+        android:fastScrollEnabled="true" />
 
 </LinearLayout>
